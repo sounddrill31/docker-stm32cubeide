@@ -4,7 +4,7 @@ ARG IMAGE=ubuntu:24.04
 FROM ${IMAGE} AS base
 
 RUN apt-get -y update && \
-    apt-get -y install zip wget lsb_release
+    apt-get -y install zip wget lsb-release
 
 RUN wget 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x869689FE09306074' -O '/etc/apt/trusted.gpg.d/phd-chromium.asc' && \
   echo "deb https://freeshell.de/phd/chromium/$(lsb_release -sc) /" | tee /etc/apt/sources.list.d/phd-chromium.list && \
