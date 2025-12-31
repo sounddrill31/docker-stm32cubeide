@@ -32,7 +32,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ github.action_repository }}:17 # tag
+          tags: ghcr.io/${{ github.repository_owner }}/docker-stm32cubeide:17.0
 
       - name: Logout from GitHub Container Registry
         run: docker logout ghcr.io
