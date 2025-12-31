@@ -4,7 +4,14 @@ ARG IMAGE=ubuntu:24.04
 FROM ${IMAGE} AS base
 
 RUN apt-get -y update && \
-    apt-get -y install zip
+    apt-get -y install zip wget
+
+RUN wget 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x869689FE09306074' \
+  -O '/etc/apt/trusted.gpg.d/phd-chromium.asc' && \
+  echo "deb https://freeshell.de/phd/chromium/$(lsb_release -sc) /" \
+  | tee /etc/apt/sources.list.d/phd-chromium.list && \
+  apt-get -y update && \
+  apt-get -y install chromium
 
 COPY st-stm32cubeide_1.19.0_25607_20250703_0907_amd64.deb_bundle.sh.zip /tmp/stm32cubeide-installer.sh.zip
 
