@@ -4,12 +4,7 @@ ARG IMAGE=ubuntu:24.04
 FROM ${IMAGE} AS base
 
 RUN apt-get -y update && \
-    apt-get -y install zip wget lsb-release
-
-RUN wget 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x869689FE09306074' -O '/etc/apt/trusted.gpg.d/phd-chromium.asc' && \
-  echo "deb https://freeshell.de/phd/chromium/$(lsb_release -sc) /" | tee /etc/apt/sources.list.d/phd-chromium.list && \
-  apt-get -y update && \
-  apt-get -y install chromium
+    apt-get -y install zip wget falkon
 
 RUN wget "https://github.com/sounddrill31/docker-stm32cubeide/releases/download/2.0.0_26820_20251114_1348/st-stm32cubeide_2.0.0_26820_20251114_1348_amd64.deb_bundle.sh.zip" -O /tmp/stm32cubeide-installer.sh.zip
 
