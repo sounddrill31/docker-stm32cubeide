@@ -13,14 +13,16 @@ RUN wget 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x869689FE093060
   apt-get -y update && \
   apt-get -y install chromium
 
-COPY st-stm32cubeide_1.19.0_25607_20250703_0907_amd64.deb_bundle.sh.zip /tmp/stm32cubeide-installer.sh.zip
+RUN wget 'https://github.com/sounddrill31/docker-stm32cubeide/releases/download/2.0.0_26820_20251114_1348/st-stm32cubeide_2.0.0_26820_20251114_1348_amd64.deb_bundle.sh.zip'
+
+COPY st-stm32cubeide_2.0.0_26820_20251114_1348_amd64.deb_bundle.sh.zip /tmp/stm32cubeide-installer.sh.zip
 
 # Unzip STM32 Cube IDE and delete zip file
 RUN unzip -p /tmp/stm32cubeide-installer.sh.zip > /tmp/stm32cubeide-installer.sh && rm /tmp/stm32cubeide-installer.sh.zip
 
 # Set environment variables and labels in the last tag
 FROM ${IMAGE}
-ENV STM32CUBEIDE_VERSION=1.19.0
+ENV STM32CUBEIDE_VERSION=2.0.0
 ENV DEBIAN_FRONTEND=noninteractive
 ENV LICENSE_ALREADY_ACCEPTED=1
 ENV TZ=Etc/UTC

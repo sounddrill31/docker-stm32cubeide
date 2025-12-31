@@ -1,9 +1,9 @@
 # stm32cubeide
 
-[stm32cubeide](https://github.com/xanderhendriks/docker-stm32cubeide): the STM32 Cube Integrated Development
+[stm32cubeide](https://github.com/sounddrill31/docker-stm32cubeide): the STM32 Cube Integrated Development
 Environment docker container.
 
-**All commands have been tested on Windows 11 with WSL2 and powershell**. 
+<!-- **All commands have been tested on Windows 11 with WSL2 and powershell**. -->
 
 ## Build
 
@@ -19,30 +19,31 @@ You can now tag the repo and push the changes to the docker hub:
 
 ## Run
 
-    $ docker pull xanderhendriks/stm32cubeide
+    $ docker pull ghcr.io/sounddrill31/docker-stm32cubeide:latest
 
     $ docker run -it --name stm32cubeide \
         -v c:\GIT\repo:/workspace \
-        xanderhendriks/stm32cubeide
+        sounddrill31/stm32cubeide
 
 ### Running with GUI support
 
     $ docker run -it --name stm32cubeide \
         -v c:\GIT\repo:/workspace \
         -v /mnt/host/wslg/.X11-unix:/tmp/.X11-unix \
-        xanderhendriks/stm32cubeide
+        sounddrill31/stm32cubeide
 
 #### Start stm32cubeide when running the docker
 
     $ docker run -it --name stm32cubeide \
         -v c:\GIT\repo:/workspace \
         -v /mnt/host/wslg/.X11-unix:/tmp/.X11-unix \
-        xanderhendriks/stm32cubeide stm32cubeide
+        sounddrill31/stm32cubeide stm32cubeide
 
 
 ## STM32 Cube IDE Versions
 
-The major.minor version number indicates the version of the underlying [STM32CubeIde docker image](https://hub.docker.com/repository/docker/xanderhendriks/stm32cubeide) being used. The bug fix number shows updates to this build action only:
+The major.minor version number indicates the version of the underlying [STM32CubeIde docker image](https://hub.docker.com/repository/docker/xanderhendriks/stm32cubeide) being used. The bug fix number shows updates to this build action only: 
+<!--
 - 1.0: STM32 Cube IDE: 1.4.0
 - 2.0: STM32 Cube IDE: 1.5.0
 - 3.0: STM32 Cube IDE: 1.6.0
@@ -61,6 +62,8 @@ The major.minor version number indicates the version of the underlying [STM32Cub
 - 15.0: STM32 Cube IDE: 1.18.0
 - 15.1: STM32 Cube IDE: 1.18.1 - Allows running of stm32cubeide GUI on xserver
 - 16.0: STM32 Cube IDE: 1.19.0
+-->
+- 17.0: STM32 Cube IDE: 2.0.0
 
 NOTE: Bug fixes are only implemented for older versions if requested.
 
